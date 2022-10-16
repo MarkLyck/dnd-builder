@@ -96,6 +96,7 @@ importers:
   packages/core:
     specifiers:
       '@dnd-kit/core': ^6.0.5
+      '@dnd-kit/modifiers': ^6.0.0
       '@dnd-kit/utilities': ^3.2.0
       '@types/react': ^18.0.21
       '@types/react-dom': ^18.0.6
@@ -105,10 +106,13 @@ importers:
       react-dom: 18.2.0
       tsconfig: workspace:*
       typescript: ^4.8.4
+      zustand: ^4.1.2
     dependencies:
       '@dnd-kit/core': 6.0.5_biqbaboplfbrettd7655fr4n2y
+      '@dnd-kit/modifiers': 6.0.0_vvd3dzag27tc7rclyb2whqqnpe
       '@dnd-kit/utilities': 3.2.0_react@18.2.0
       react-dom: 18.2.0_react@18.2.0
+      zustand: 4.1.2_react@18.2.0
     devDependencies:
       '@types/react': 18.0.21
       '@types/react-dom': 18.0.6
@@ -141,24 +145,38 @@ importers:
   packages/ui:
     specifiers:
       '@babel/core': ^7.19.3
+      '@dnd-kit/core': ^6.0.5
+      '@dnd-kit/sortable': ^7.0.1
+      '@dnd-kit/utilities': ^3.2.0
       '@radix-ui/colors': ^0.1.8
       '@stitches/react': ^1.2.8
       '@storybook/react': 7.0.0-alpha.38
       '@storybook/react-vite': 7.0.0-alpha.38
       '@types/react': ^18.0.21
       '@types/react-dom': ^18.0.6
+      core: workspace:*
       eslint: ^8.25.0
       eslint-config-custom: workspace:*
+      immer: ^9.0.15
+      nanoid: ^4.0.0
       react: ^18.2.0
       react-dom: 18.2.0
       storybook: 7.0.0-alpha.38
       tsconfig: workspace:*
       typescript: ^4.8.4
+      use-immer: ^0.7.0
       vite: 3.1.8
       vite-plugin-svgr: ^2.2.2
     dependencies:
+      '@dnd-kit/core': 6.0.5_biqbaboplfbrettd7655fr4n2y
+      '@dnd-kit/sortable': 7.0.1_vvd3dzag27tc7rclyb2whqqnpe
+      '@dnd-kit/utilities': 3.2.0_react@18.2.0
       '@radix-ui/colors': 0.1.8
       '@stitches/react': 1.2.8_react@18.2.0
+      core: link:../core
+      immer: 9.0.15
+      nanoid: 4.0.0
+      use-immer: 0.7.0_immer@9.0.15+react@18.2.0
     devDependencies:
       '@babel/core': 7.19.3
       '@storybook/react': 7.0.0-alpha.38_yalvw3r2waubxycyb7k7qsruca
@@ -1568,6 +1586,30 @@ packages:
       '@dnd-kit/utilities': 3.2.0_react@18.2.0
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
+      tslib: 2.4.0
+    dev: false
+
+  /@dnd-kit/modifiers/6.0.0_vvd3dzag27tc7rclyb2whqqnpe:
+    resolution: {integrity: sha512-V3+JSo6/BTcgPRHiNUTSKgqVv/doKXg+T4Z0QvKiiXp+uIyJTUtPkQOBRQApUWi3ApBhnoWljyt/3xxY4fTd0Q==}
+    peerDependencies:
+      '@dnd-kit/core': ^6.0.0
+    dependencies:
+      '@dnd-kit/core': 6.0.5_biqbaboplfbrettd7655fr4n2y
+      '@dnd-kit/utilities': 3.2.0_react@18.2.0
+      tslib: 2.4.0
+    transitivePeerDependencies:
+      - react
+    dev: false
+
+  /@dnd-kit/sortable/7.0.1_vvd3dzag27tc7rclyb2whqqnpe:
+    resolution: {integrity: sha512-n77qAzJQtMMywu25sJzhz3gsHnDOUlEjTtnRl8A87rWIhnu32zuP+7zmFjwGgvqfXmRufqiHOSlH7JPC/tnJ8Q==}
+    peerDependencies:
+      '@dnd-kit/core': ^6.0.4
+      react: '>=16.8.0'
+    dependencies:
+      '@dnd-kit/core': 6.0.5_biqbaboplfbrettd7655fr4n2y
+      '@dnd-kit/utilities': 3.2.0_react@18.2.0
+      react: 18.2.0
       tslib: 2.4.0
     dev: false
 
@@ -6447,6 +6489,10 @@ packages:
     resolution: {integrity: sha512-CmxgYGiEPCLhfLnpPp1MoRmifwEIOgjcHXxOBjv7mY96c+eWScsOP9c112ZyLdWHi0FxHjI+4uVhKYp/gcdRmQ==}
     engines: {node: '>= 4'}
 
+  /immer/9.0.15:
+    resolution: {integrity: sha512-2eB/sswms9AEUSkOm4SbV5Y7Vmt/bKRwByd52jfLkW4OLYeaTP3EEiJ9agqU0O/tq6Dk62Zfj+TJSqfm1rLVGQ==}
+    dev: false
+
   /import-fresh/3.3.0:
     resolution: {integrity: sha512-veYYhQa+D1QBKznvhUHxb8faxlrwUnxseDAbAp457E0wLNio2bOSKnjYDhMj+YiAq61xrMGhQk9iXVk5FzgQMw==}
     engines: {node: '>=6'}
@@ -7970,6 +8016,12 @@ packages:
     resolution: {integrity: sha512-MqBkQh/OHTS2egovRtLk45wEyNXwF+cokD+1YPf9u5VfJiRdAiRwB2froX5Co9Rh20xs4siNPm8naNotSD6RBw==}
     engines: {node: ^10 || ^12 || ^13.7 || ^14 || >=15.0.1}
     hasBin: true
+
+  /nanoid/4.0.0:
+    resolution: {integrity: sha512-IgBP8piMxe/gf73RTQx7hmnhwz0aaEXYakvqZyE302IXW3HyVNhdNGC+O2MwMAVhLEnvXlvKtGbtJf6wvHihCg==}
+    engines: {node: ^14 || ^16 || >=18}
+    hasBin: true
+    dev: false
 
   /nanomatch/1.2.13:
     resolution: {integrity: sha512-fpoe2T0RbHwBTBUOftAfBPaDEi06ufaUai0mE6Yn1kacc3SnTErfb/h+X94VXzI64rKFHYImXSvdwGGCmwOqCA==}
@@ -10361,6 +10413,16 @@ packages:
       prepend-http: 2.0.0
     dev: true
 
+  /use-immer/0.7.0_immer@9.0.15+react@18.2.0:
+    resolution: {integrity: sha512-Re4hjrP3a/2ABZjAc0b7AK9s626bnO+H33RO2VUhiDZ2StBz5B663K6WNNlr4QtHWaGUmvLpwt3whFvvWuolQw==}
+    peerDependencies:
+      immer: '>=2.0.0'
+      react: ^16.8.0 || ^17.0.1 || ^18.0.0
+    dependencies:
+      immer: 9.0.15
+      react: 18.2.0
+    dev: false
+
   /use-sync-external-store/1.2.0_react@18.2.0:
     resolution: {integrity: sha512-eEgnFxGQ1Ife9bzYs6VLi8/4X6CObHMw9Qr9tPY43iKwsPw8xE8+EFsf/2cFZ5S3esXgpWgtSCtLNS41F+sKPA==}
     peerDependencies:
@@ -10746,6 +10808,22 @@ packages:
   /yocto-queue/0.1.0:
     resolution: {integrity: sha512-rVksvsnNCdJ/ohGc6xgPwyN8eheCxsiLM8mxuE/t/mOVqJewPuO1miLpTHQiRgTKCLexL4MeAFVagts7HmNZ2Q==}
     engines: {node: '>=10'}
+
+  /zustand/4.1.2_react@18.2.0:
+    resolution: {integrity: sha512-gcRaKchcxFPbImrBb/BKgujOhHhik9YhVpIeP87ETT7uokEe2Szu7KkuZ9ghjtD+/KKkcrRNktR2AiLXPIbKIQ==}
+    engines: {node: '>=12.7.0'}
+    peerDependencies:
+      immer: '>=9.0'
+      react: '>=16.8'
+    peerDependenciesMeta:
+      immer:
+        optional: true
+      react:
+        optional: true
+    dependencies:
+      react: 18.2.0
+      use-sync-external-store: 1.2.0_react@18.2.0
+    dev: false
 
   /zwitch/1.0.5:
     resolution: {integrity: sha512-V50KMwwzqJV0NpZIZFwfOD5/lyny3WlSzRiXgA0G7VUnRlqttta1L6UQIHzd6EuBY/cHGfwTIck7w1yH6Q5zUw==}

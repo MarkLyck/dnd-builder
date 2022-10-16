@@ -1,1 +1,1 @@
-export * from "./Dragger";
+export * from "./DraggableItem";

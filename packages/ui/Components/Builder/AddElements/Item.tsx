@@ -1,5 +1,4 @@
 import { styled } from "stitches";
-import { ButtonIcon } from "@icons";
 
 const Container = styled("div", {
   display: "flex",
@@ -7,20 +6,22 @@ const Container = styled("div", {
   alignItems: "center",
   flexDirection: "column",
   padding: "1rem",
-  color: "$primary9",
   br: "$rounded",
   border: "2px solid $neutral6",
   cursor: "pointer",
-  transition: "transform 0.1s ease-in-out",
   bg: "$neutral1",
 
   svg: {
     size: "$6",
     fill: "$neutral11",
+    mb: "$2",
+  },
+  span: {
+    textTransform: "capitalize",
   },
 
   "&:hover": {
-    transform: "scale(0.95)",
+    transform: "scale(0.98)",
     borderColor: "$neutral7",
   },
   "&:active": {
@@ -32,10 +33,13 @@ const Container = styled("div", {
   },
 });
 
-type DraggerProps = {
-  icon: React.ReactNode;
+type SidebarFieldProps = {
+  field: any;
+  overlay: any;
 };
 
-export const Dragger = ({ icon }: DraggerProps) => {
-  return <Container>{icon}</Container>;
+export const Item = ({ field }: SidebarFieldProps) => {
+  const { label } = field;
+
+  return <Container>{label}</Container>;
 };

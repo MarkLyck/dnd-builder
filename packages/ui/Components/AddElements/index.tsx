@@ -1,6 +1,7 @@
 import { styled } from "stitches";
 import { ButtonIcon } from "@icons";
-import { Dragger } from "../Dragger";
+import { DraggableItem } from "../DraggableItem";
+import { useDnDStore } from "core";
 
 const Container = styled("div", {
   display: "flex",
@@ -24,25 +25,55 @@ const Grid = styled("div", {
 });
 
 export const AddElements = () => {
+  const regenKey = useDnDStore((state: any) => state.regenKey);
+
   return (
     <Container>
       <SectionTitle>Layout</SectionTitle>
       <Grid>
-        <Dragger icon={<ButtonIcon />} />
-        <Dragger icon={<ButtonIcon />} />
-        <Dragger icon={<ButtonIcon />} />
+        <DraggableItem
+          id={`${regenKey}-1`}
+          icon={<ButtonIcon />}
+          label="button"
+        />
+        <DraggableItem
+          id={`${regenKey}-2`}
+          icon={<ButtonIcon />}
+          label="button"
+        />
+        <DraggableItem
+          id={`${regenKey}-3`}
+          icon={<ButtonIcon />}
+          label="button"
+        />
       </Grid>
       <SectionTitle>Inputs</SectionTitle>
       <Grid>
-        <Dragger icon={<ButtonIcon />} />
-        <Dragger icon={<ButtonIcon />} />
-        <Dragger icon={<ButtonIcon />} />
+        <DraggableItem
+          id={`${regenKey}-4`}
+          icon={<ButtonIcon />}
+          label="button"
+        />
+        <DraggableItem
+          id={`${regenKey}-5`}
+          icon={<ButtonIcon />}
+          label="button"
+        />
+        <DraggableItem
+          id={`${regenKey}-6`}
+          icon={<ButtonIcon />}
+          label="button"
+        />
       </Grid>
       <SectionTitle>Files</SectionTitle>
       <Grid>
-        <Dragger icon={<ButtonIcon />} />
-        <Dragger icon={<ButtonIcon />} />
-        <Dragger icon={<ButtonIcon />} />
+        <DraggableItem
+          id={`${regenKey}-7`}
+          icon={<ButtonIcon />}
+          label="button"
+        />
+        <DraggableItem id="8" icon={<ButtonIcon />} label="button" />
+        <DraggableItem id="9" icon={<ButtonIcon />} label="button" />
       </Grid>
     </Container>
   );

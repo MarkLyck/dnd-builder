@@ -1,2 +1,5 @@
-import * as React from "react";
-export { default as Builder } from "./src/Builder";
+export { default as Frame } from "./src/Frame";
+export { default as useDnDStore } from "./src/store";
+
+export { Droppable } from "./src/Droppable";
+export { Draggable } from "./src/Draggable";
